@@ -1,4 +1,12 @@
 // counter.actions.ts
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const increment = createAction('[Counter] Increment');
+export const loadCount = createAction('[Counter] Load Count');
+export const loadCountSuccess = createAction(
+  '[Counter] Load Count Success',
+  props<{ count: number }>()
+);
+export const loadCountFailure = createAction(
+  '[Counter] Load Count Failure',
+  props<{ error: any }>()
+);

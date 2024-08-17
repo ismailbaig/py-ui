@@ -5,6 +5,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { appStoreProviders } from './store/store.config';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment.prod';
+import { provideEffects } from '@ngrx/effects';
+import { CounterEffects } from './store/counter/effects/counter.effects';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,5 +19,6 @@ export const appConfig: ApplicationConfig = {
       maxAge: 25, // Retains last 25 states
       logOnly: !environment.production, // Restrict extension to log-only mode
     }),
+    provideEffects([CounterEffects])
   ],
 };
